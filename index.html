@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="猫モチーフのクレープ屋さんを想定した、匿名化済みの制作サンプルLPです。">
+<link rel="icon" href="data:,">
+<title>Crepe Sample 01 | Design Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&family=Zen+Maru+Gothic:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+/* cyrillic-ext */
+
+/* cyrillic */
+
+/* greek-ext */
+
+/* greek */
+
+/* hebrew */
+
+/* vietnamese */
+
+/* latin-ext */
+
+/* latin */
+
+/* cyrillic-ext */
+
+/* cyrillic */
+
+/* greek-ext */
+
+/* greek */
+
+/* hebrew */
+
+/* vietnamese */
+
+/* latin-ext */
+
+/* latin */
+
+/* latin */
+
+/* cyrillic */
+
+/* greek */
+
+/* latin-ext */
+
+/* latin */
+
+/* cyrillic */
+
+/* greek */
+
+/* latin-ext */
+
+/* latin */
+
+</style>
+<style>
+  :root{
+    --cream:#faf4ea;
+    --cream-2:#f6ecdb;
+    --card:#fffdf9;
+    --ink:#5a4636;
+    --ink-soft:#8a7361;
+    --ink-mute:#a08b78;
+    --pink:#ef9fac;
+    --pink-deep:#e88895;
+    --pink-tint:#fbeef0;
+    --pink-band:#fbe2e6;
+    --pink-band-2:#f8d4da;
+    --brown-btn-1:#8a6648;
+    --brown-btn-2:#6f4f38;
+    --line:#efe5d4;
+    --orange:#f59a4b;
+    --shadow:0 18px 40px -22px rgba(120,86,54,.45);
+    --shadow-sm:0 10px 24px -16px rgba(120,86,54,.5);
+    --radius:26px;
+    --maxw:980px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"M PLUS Rounded 1c","Zen Maru Gothic",sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    background-image:
+      radial-gradient(1200px 600px at 80% -5%, #fdeedf 0%, rgba(253,238,223,0) 60%),
+      radial-gradient(900px 500px at -10% 30%, #fbeef0 0%, rgba(251,238,240,0) 55%);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.75;
+    overflow-x:hidden;
+    position:relative;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;position:relative;}
+  .heading{font-family:"Zen Maru Gothic",sans-serif;}
+
+  /* ---------- decorative paws ---------- */
+  .paw{position:absolute;opacity:.5;pointer-events:none;user-select:none;z-index:0;}
+  .deco{position:absolute;pointer-events:none;user-select:none;z-index:1;}
+  .hero-paw-m{display:none;}
+  /* page-wide scattered paw layer */
+  .paw-field{position:absolute;inset:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:0;}
+  .paw-field img{position:absolute;opacity:.16;filter:saturate(.85);}
+
+  /* ---------- section scaffolding ---------- */
+  section{position:relative;}
+  .section-pad{padding:34px 0;}
+  .title-img{display:block;margin:0 auto 26px;height:54px;width:auto;}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ===================== HERO ===================== */
+  .hero{padding:26px 0 12px;}
+  .mockup-badge{height:42px;width:auto;margin-bottom:10px;filter:drop-shadow(0 6px 12px rgba(120,86,54,.25));}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:center;}
+  .hero-h1{
+    font-family:"Mochiy Pop One","Zen Maru Gothic",sans-serif;
+    font-weight:900;
+    font-size:clamp( 26px,4.4vw,50px);
+    line-height:1.4;
+    letter-spacing:0;
+    margin:6px 0 16px;
+    text-shadow:0 2px 0 rgba(255,255,255,.7);
+  }
+  .hero-h1 .nyan{color:var(--pink-deep);}
+  .hero-h1 .nyan{color:var(--pink-deep);}
+  .hero-h1 .pp{display:inline-block;width:.5em;height:.5em;margin:0 .04em 0 .06em;vertical-align:-.06em;
+    background:url("assets/images/8107b768-cb23-43bb-87ba-55aa6976277a.png") center/contain no-repeat;}
+  .hero-sub{font-weight:700;color:var(--ink-soft);font-size:clamp(15px,2.2vw,19px);margin:0 0 22px;}
+  .hero-cta{display:flex;flex-direction:column;gap:14px;max-width:330px;}
+  .btn-img{display:block;transition:transform .18s ease,filter .18s ease;
+  z-index:1;}
+  .btn-img img{width:100%;height:auto;display:block;filter:drop-shadow(0 12px 20px -12px rgba(111,79,56,.7));}
+  .btn-img:hover{transform:translateY(-3px);filter:brightness(1.04);}
+  .btn-img:active{transform:translateY(-1px);}
+  .btn{
+    display:inline-flex;align-items:center;gap:12px;justify-content:flex-start;
+    font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:18px;color:#fff;
+    padding:15px 26px;border-radius:40px;
+    background:linear-gradient(180deg,var(--brown-btn-1),var(--brown-btn-2));
+    box-shadow:inset 0 0 0 2px rgba(255,255,255,.18),0 12px 22px -12px rgba(111,79,56,.85);
+    transition:transform .18s ease,box-shadow .18s ease,filter .18s ease;
+    cursor:pointer;
+  }
+  .btn:hover{transform:translateY(-3px);box-shadow:inset 0 0 0 2px rgba(255,255,255,.22),0 18px 28px -12px rgba(111,79,56,.85);filter:brightness(1.04);}
+  .btn:active{transform:translateY(-1px);}
+  .btn .ico{width:24px;height:24px;object-fit:contain;flex:0 0 auto;}
+  .btn .ico.paw{filter:brightness(0) invert(1) opacity(.92);}
+  .btn .ico.pin{filter:brightness(0) invert(1) opacity(.92);}
+
+  .hero-art{position:relative;min-height:520px;display:flex;align-items:center;justify-content:center;}
+  .hero-blob{position:absolute;width:118%;left:-9%;top:50%;transform:translateY(-50%);z-index:0;
+    filter:drop-shadow(0 24px 40px -26px rgba(232,136,149,.6));}
+  .hero-crepe{position:relative;z-index:2;width:108%;margin-left:-4%;margin-right:-4%;
+    filter:drop-shadow(0 36px 48px -20px rgba(120,86,54,.55));
+    transition:transform .4s cubic-bezier(.22,.61,.36,1),filter .4s ease;cursor:pointer;}
+  .hero-crepe:hover{transform:translateY(-18px) scale(1.04);
+    filter:drop-shadow(0 44px 52px -20px rgba(120,86,54,.6));}
+  .hero-cat{position:absolute;right:-4%;bottom:0;width:26%;z-index:3;
+    filter:drop-shadow(0 12px 16px -10px rgba(0,0,0,.4));}
+  @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+  @media (prefers-reduced-motion:reduce){}
+
+  /* ===================== FEATURE INTRO ===================== */
+  .feature-card{
+    background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:36px 30px 34px;position:relative;border:2px solid #fff;
+  }
+  .card-title{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;text-align:center;
+    font-size:clamp(22px,3.4vw,30px);margin:0 0 28px;}
+  .card-title .x{color:var(--pink-deep);font-weight:900;padding:0 .12em;}
+  .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .feat{display:flex;flex-direction:column;align-items:flex-start;gap:6px;}
+  .feat-head{display:flex;align-items:center;gap:12px;}
+  .feat-ico{width:52px;height:52px;object-fit:contain;flex:0 0 auto;}
+  .feat h3{font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:17px;margin:0;line-height:1.4;}
+  .feat p{margin:4px 0 0;color:var(--ink-soft);font-size:14.5px;line-height:1.7;font-weight:500;}
+
+  /* ===================== MENU ===================== */
+  .menu-list{display:flex;flex-direction:column;gap:20px;}
+  .menu-item{
+    display:grid;grid-template-columns:auto 250px 1fr auto;gap:24px;align-items:center;
+    background:var(--card);border-radius:24px;box-shadow:var(--shadow-sm);
+    padding:22px 30px 22px 22px;border:2px solid #fff;position:relative;
+  }
+  .menu-num{width:64px;height:64px;object-fit:contain;flex:0 0 auto;}
+  .menu-photo{width:250px;height:210px;object-fit:contain;margin:-22px 0;
+    filter:drop-shadow(0 16px 22px -12px rgba(120,86,54,.5));
+    transition:transform .28s cubic-bezier(.22,.61,.36,1),filter .28s ease;cursor:pointer;}
+  .menu-photo:hover{transform:translateY(-14px) scale(1.04);
+    filter:drop-shadow(0 26px 30px -14px rgba(120,86,54,.55));}
+  .menu-body h3{font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:23px;margin:0 0 6px;}
+  .menu-body p{margin:0;color:var(--ink-soft);font-size:15px;font-weight:500;line-height:1.7;}
+  .menu-price{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:34px;white-space:nowrap;
+    color:var(--ink);}
+  .menu-price small{font-size:24px;}
+
+  /* ===================== REASONS / VOICE ===================== */
+  .tri-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .tri{
+    background:var(--card);border-radius:20px;box-shadow:var(--shadow-sm);
+    padding:24px 24px 26px;border:2px solid #fff;text-align:left;
+    display:flex;align-items:center;gap:18px;
+  }
+  .tri-ico{width:74px;height:74px;object-fit:contain;flex:0 0 auto;}
+  .tri-body h3{font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:18px;margin:0;}
+  .tri-body p{margin:6px 0 0;color:var(--ink-soft);font-size:14px;font-weight:500;line-height:1.7;}
+
+  .voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .voice{
+    background:var(--pink-tint);border-radius:18px;padding:18px 20px;
+    display:flex;align-items:center;gap:14px;border:2px solid #fff;
+    box-shadow:0 8px 20px -16px rgba(232,136,149,.8);
+  }
+  .voice img{width:40px;height:40px;object-fit:contain;flex:0 0 auto;}
+  .voice p{margin:0;font-size:14.5px;font-weight:600;color:var(--ink);line-height:1.6;}
+
+  /* ===================== STORE INFO ===================== */
+  .store-card{
+    background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:32px 34px;border:2px solid #fff;
+    display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:center;
+  }
+  .store-table{display:flex;flex-direction:column;gap:14px;}
+  .store-row{display:grid;grid-template-columns:120px 1fr;align-items:center;gap:16px;
+    padding-bottom:13px;border-bottom:2px dotted var(--line);}
+  .store-row:last-child{border-bottom:none;}
+  .store-label{
+    font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:14px;color:#fff;text-align:center;
+    background:linear-gradient(180deg,#a07a5b,#876247);border-radius:9px;padding:7px 6px;
+    letter-spacing:.18em;
+  }
+  .store-val{font-weight:600;font-size:16px;color:var(--ink);}
+  .store-art{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;}
+  .store-scene{width:100%;max-width:400px;
+    filter:drop-shadow(0 16px 26px -16px rgba(120,86,54,.5));}
+  .store-logo{position:absolute;right:-6px;bottom:-14px;width:108px;z-index:2;
+    filter:drop-shadow(0 12px 18px -10px rgba(120,86,54,.55));}
+
+  /* ===================== FOOTER CTA ===================== */
+  .cta-band{
+    margin-top:30px;background:linear-gradient(180deg,var(--pink-band),var(--pink-band-2));
+    padding:34px 0 42px;position:relative;overflow:hidden;
+  }
+  .cta-inner{display:flex;flex-direction:column;align-items:center;gap:18px;position:relative;z-index:2;text-align:center;}
+  .cta-lead{display:flex;align-items:center;gap:14px;}
+  .cta-lead .cat{width:84px;flex:0 0 auto;align-self:flex-end;}
+  .cta-lead h2{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:clamp(20px,3vw,27px);
+    margin:0;color:#7a5740;}
+  .cta-lead-img{width:auto;max-width:min(520px,86vw);height:auto;}
+  .ig-btn{display:inline-block;transition:transform .18s ease,filter .18s ease;}
+  .ig-wrap{position:relative;display:inline-block;}
+  .ig-arrow{position:absolute;left:-70px;top:18px;width:64px;transform:rotate(6deg);opacity:.85;}
+  .ig-btn img{height:60px;width:auto;filter:drop-shadow(0 10px 18px -10px rgba(111,79,56,.7));}
+  .ig-btn:hover{transform:translateY(-3px) scale(1.02);filter:brightness(1.04);}
+  .foot-note{font-size:12px;color:var(--ink-mute);text-align:center;padding:18px 0 26px;font-weight:500;}
+
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width:860px){
+    .menu-item{grid-template-columns:auto 180px 1fr;grid-template-rows:auto auto;row-gap:8px;
+      padding:20px;}
+    .menu-photo{width:180px;height:150px;margin:-10px 0;}
+    .menu-price{grid-column:1 / -1;text-align:right;font-size:30px;}
+  }
+  @media (max-width:760px){
+    .hero-grid{grid-template-columns:1fr 1fr;gap:8px;align-items:center;}
+    .hero-copy{min-width:0;position:relative;z-index:2;order:0;}
+    .hero-art{order:1;min-height:190px;min-width:0;position:relative;display:block;}
+    .hero-blob{position:absolute;width:130%;left:-15%;top:50%;transform:translateY(-50%);z-index:0;}
+    .hero-art .deco{display:none;}
+    .hero-cat{display:none;}
+    .hero-crepe{position:relative;z-index:2;display:block;width:120%;height:auto;max-height:none;object-fit:contain;margin:0;top:-10px;}
+    .hero-h1{margin:4px 0 8px;}
+    .hero-sub{margin:0 0 10px;}
+    .hero-cta{max-width:100%;}
+    .btn{justify-content:center;font-size:14px;padding:11px 18px;gap:8px;}
+    .btn-img{max-width:220px;}
+    .hero-cta{gap:10px;}
+    .hero-paw-m{display:block;position:absolute;bottom:6%;right:3%;width:22px;opacity:.2;transform:rotate(22deg);z-index:3;pointer-events:none;}
+    .feat-grid{grid-template-columns:1fr;gap:20px;}
+    .feat{flex-direction:column;align-items:flex-start;gap:8px;}
+    .feat-head{flex-direction:row;align-items:center;gap:10px;}
+    .feat-head h3{margin:0;}
+    .feat-body-w{width:100%;}
+    .tri-grid{grid-template-columns:1fr;}
+    .voice-grid{grid-template-columns:1fr;}
+    .store-card{grid-template-columns:1fr;}
+    .store-art{order:-1;}
+    .title-img{height:44px;}
+    .section-pad{padding:25px 0;}
+    .paw-field{display:none;}
+    .mockup-badge{display:none;}
+    #menu .deco{top:12px!important;left:calc(50% - 118px)!important;right:auto!important;width:34px!important;}
+  }
+  @media (max-width:560px){
+    .menu-item{display:grid;grid-template-columns:52px 150px;grid-template-rows:auto auto;gap:8px 12px;padding:14px;align-items:center;}
+    .menu-num{width:52px;height:52px;grid-row:1;grid-column:1;}
+    .menu-photo{display:block;width:150px;height:126px;object-fit:contain;margin:0;grid-row:1;grid-column:2;}
+    .menu-price{display:none;}
+    .menu-body{grid-row:2;grid-column:1/-1;}
+    .menu-body h3{font-size:18px;}
+    .menu-body p{font-size:13px;}
+    .cta-lead{flex-direction:column;}
+    .cta-lead .cat{width:70px;align-self:center;}
+    .paw{opacity:.35;}
+  }
+</style>
+</head>
+<body>
+
+<div style="background:#555;color:#fff;text-align:center;font-size:13px;padding:6px 0;letter-spacing:.05em;">※提案用サンプルLP</div>
+
+<!-- page-wide scattered paws -->
+<div class="paw-field" aria-hidden="true">
+  <img src="assets/images/72288110-2a49-493b-be95-08c6d06368f9.png" alt="" style="top:4%;left:84%;width:70px;transform:rotate(18deg);">
+  <img src="assets/images/8107b768-cb23-43bb-87ba-55aa6976277a.png" alt="" style="top:11%;left:6%;width:42px;transform:rotate(-22deg);">
+  <img src="assets/images/8107b768-cb23-43bb-87ba-55aa6976277a.png" alt="" style="top:19%;left:92%;width:38px;transform:rotate(28deg);">
+  <img src="assets/images/72288110-2a49-493b-be95-08c6d06368f9.png" alt="" style="top:25%;left:2%;width:60px;transform:rotate(-14deg);">
+  <img src="assets/images/8107b768-cb23-43bb-87ba-55aa6976277a.png" alt="" style="top:30%;left:48%;width:40px;transform:rotate(36deg);">
+  <img src="assets/images/8107b768-cb23-43bb-87ba-55aa6976277a.png" alt="" style="top:37%;left:90%;width:48px;transform:rotate(-30deg);">
+  <img src="assets/images/72288110-2a49-493b-be95-08c6d06368f9.png" alt="" style="top:44%;left:5%;width:64px;transform:rotate(20deg);">
+  <img src="assets/images/8107b768-cb23-43bb-87ba-55aa6976277a.png" alt="" style="top:50%;left:95%;width:40px;transform:rotate(-18deg);">
+  <img src="assets/images/8107b768-cb23-43bb-87ba-55aa6976277a.png" alt="" style="top:56%;left:44%;width:38px;transform:rotate(24deg);">
+  <img src="assets/images/72288110-2a49-493b-be95-08c6d06368f9.png" alt="" style="top:62%;left:88%;width:58px;transform:rotate(-26deg);">
+  <img src="assets/images/8107b768-cb23-43bb-87ba-55aa6976277a.png" alt="" style="top:68%;left:3%;width:44px;transform:rotate(16deg);">
+  <img src="assets/images/8107b768-cb23-43bb-87ba-55aa6976277a.png" alt="" style="top:74%;left:93%;width:40px;transform:rotate(-34deg);">
+  <img src="assets/images/72288110-2a49-493b-be95-08c6d06368f9.png" alt="" style="top:80%;left:7%;width:60px;transform:rotate(30deg);">
+  <img src="assets/images/8107b768-cb23-43bb-87ba-55aa6976277a.png" alt="" style="top:86%;left:50%;width:38px;transform:rotate(-20deg);">
+  <img src="assets/images/8107b768-cb23-43bb-87ba-55aa6976277a.png" alt="" style="top:91%;left:90%;width:46px;transform:rotate(22deg);">
+  <img src="assets/images/72288110-2a49-493b-be95-08c6d06368f9.png" alt="" style="top:96%;left:6%;width:56px;transform:rotate(-16deg);">
+</div>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero section-pad" id="top" data-screen-label="hero">
+  <div class="wrap">
+    <img class="paw" src="assets/images/8107b768-cb23-43bb-87ba-55aa6976277a.png" alt="" style="top:8px;left:-10px;width:34px;transform:rotate(-18deg);">
+    <img class="paw" src="assets/images/72288110-2a49-493b-be95-08c6d06368f9.png" alt="" style="top:60px;right:46%;width:30px;transform:rotate(22deg);opacity:.4;">
+    <img class="paw" src="assets/images/8107b768-cb23-43bb-87ba-55aa6976277a.png" alt="" style="bottom:0;right:30px;width:30px;transform:rotate(12deg);">
+
+    <div class="hero-grid">
+      <div class="hero-copy reveal">
+        <img class="mockup-badge" src="assets/images/85125c00-e687-4390-8a4d-18cde4bc3e07.png" alt="提案用LPモックアップ">
+        <h1 class="hero-h1">パリっと<br><span class="nyan">にゃん</span><span class="pp"></span>ともかわいい<br>クレープ時間</h1>
+        <p class="hero-sub">猫モチーフが楽しいクレープ屋さんのサンプルLP</p>
+        <div class="hero-cta">
+          <a href="#news" class="btn-img js-scroll" aria-label="最新情報を見る">
+            <img src="assets/images/7ff7f1e0-9dd9-4471-9886-3da42acb9356.png" alt="最新情報を見る">
+          </a>
+          <a href="#access" class="btn-img js-scroll" aria-label="アクセスを見る">
+            <img src="assets/images/ffdc20b2-5e22-48a1-8072-d33434660147.png" alt="アクセスを見る">
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-art reveal">
+        <img class="hero-blob" src="assets/images/fdc93589-c024-4568-88c8-08d4b65eaf9a.png" alt="">
+        <img class="deco" src="assets/images/81f6fadd-f7b1-4e77-a3a8-7d366e52adce.png" alt="" style="top:2%;left:2%;width:64px;z-index:4;">
+        <img class="deco" src="assets/images/41821bc0-9b85-4138-956e-171cb5b2253a.png" alt="" style="top:0;right:4%;width:90px;z-index:1;opacity:.9;">
+        <img class="hero-crepe" src="assets/images/68768049-a770-4875-a616-be484291e2c5.png" alt="バナナチョコクレープ">
+        <img class="deco" src="assets/images/81f6fadd-f7b1-4e77-a3a8-7d366e52adce.png" alt="" style="bottom:8%;left:0;width:40px;z-index:4;opacity:.85;">
+        <img class="hero-paw-m" src="assets/images/8107b768-cb23-43bb-87ba-55aa6976277a.png" alt="">
+        <img class="hero-cat" src="assets/images/707806af-37c3-4748-a19c-f3055443765f.png" alt="">
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== FEATURE INTRO ===================== -->
+<section class="section-pad">
+  <div class="wrap reveal">
+    <div class="feature-card">
+      <img class="paw" src="assets/images/8107b768-cb23-43bb-87ba-55aa6976277a.png" alt="" style="top:-12px;left:24px;width:30px;transform:rotate(-12deg);">
+      <img class="deco" src="assets/images/81f6fadd-f7b1-4e77-a3a8-7d366e52adce.png" alt="" style="top:-16px;right:30px;width:46px;">
+      <img class="deco" src="assets/images/293c4d09-eed8-4b0a-9871-34cb0be517ad.png" alt="" style="bottom:-14px;left:48%;width:34px;transform:rotate(-10deg);">
+      <h2 class="card-title heading">猫モチーフ<span class="x">×</span>パリパリ食感</h2>
+      <div class="feat-grid">
+        <div class="feat">
+          <div class="feat-head">
+            <img class="feat-ico" src="assets/images/8e52bb4a-2c54-4ecc-9bfb-37aee69b7734.png" alt="">
+            <h3>猫モチーフが<br>とにかくキュート</h3>
+          </div>
+          <div class="feat-body-w"><p>猫のシルエットや肉球…見た目も気分もほっこり。</p></div>
+        </div>
+        <div class="feat">
+          <div class="feat-head">
+            <img class="feat-ico" src="assets/images/29928504-8b4c-4a00-8bdf-390ddb72e8fa.png" alt="">
+            <h3>パリパリ食感が<br>クセになる</h3>
+          </div>
+          <div class="feat-body-w"><p>香ばしく焼き上げた生地で、軽やかな食感を楽しめます。</p></div>
+        </div>
+        <div class="feat">
+          <div class="feat-head">
+            <img class="feat-ico" src="assets/images/293c4d09-eed8-4b0a-9871-34cb0be517ad.png" alt="">
+            <h3>ちょっと幸せな<br>ごほうび時間</h3>
+          </div>
+          <div class="feat-body-w"><p>おやつにもおでかけにも。ほっとするひとときを。</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MENU ===================== -->
+<section class="section-pad" id="menu" data-screen-label="menu">
+  <div class="wrap">
+    <img class="paw" src="assets/images/8107b768-cb23-43bb-87ba-55aa6976277a.png" alt="" style="top:30px;right:14px;width:34px;transform:rotate(20deg);opacity:.45;">
+    <img class="deco" src="assets/images/1ed17f8c-2b64-4440-9ab8-cef10b84ceaf.png" alt="" style="top:8px;left:30%;width:38px;opacity:.8;">
+    <img class="title-img reveal" src="assets/images/486259b9-59ce-474b-8834-713b07247f40.png" alt="おすすめメニュー">
+    <div class="menu-list">
+      <article class="menu-item reveal">
+        <img class="menu-num" src="assets/images/e2d4c48d-6034-4aa5-9233-ce8a7c78f756.png" alt="01">
+        <img class="menu-photo" src="assets/images/da9fd7e9-89bb-45d3-8cb2-1d6337266f85.png" alt="パターシュガー風クレープ">
+        <div class="menu-body">
+          <h3>パターシュガー風</h3>
+          <p>シンプルだからこそ香ばしい。<br>パリパリ生地の定番人気。</p>
+        </div>
+        <div class="menu-price">¥5<small>xx</small></div>
+      </article>
+
+      <article class="menu-item reveal">
+        <img class="menu-num" src="assets/images/659e8e7b-05c7-46c2-8b83-506d8732edaa.png" alt="02">
+        <img class="menu-photo" src="assets/images/953425ca-fe67-4918-beb6-89b0f10758c7.png" alt="自家製カスタード風クレープ">
+        <div class="menu-body">
+          <h3>自家製カスタード風</h3>
+          <p>やさしい甘さのカスタードと<br>相性ぴったりのトッピング。</p>
+        </div>
+        <div class="menu-price">¥6<small>xx</small></div>
+      </article>
+
+      <article class="menu-item reveal">
+        <img class="menu-num" src="assets/images/b71321a0-43cc-4c05-988e-391f9ecd4d3d.png" alt="03">
+        <img class="menu-photo" src="assets/images/a0623974-fb85-4829-8937-1068fd4e8956.png" alt="季節限定風クレープ">
+        <div class="menu-body">
+          <h3>季節限定風</h3>
+          <p>旬のフルーツを使った<br>季節だけの特別メニュー。</p>
+        </div>
+        <div class="menu-price">¥6<small>xx</small></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== THREE REASONS ===================== -->
+<section class="section-pad">
+  <div class="wrap">
+    <img class="paw" src="assets/images/72288110-2a49-493b-be95-08c6d06368f9.png" alt="" style="top:20px;left:6px;width:40px;transform:rotate(-18deg);opacity:.4;">
+    <img class="title-img reveal" src="assets/images/b47b3b07-a462-49ea-b8cf-9dfc8a83bc77.png" alt="選ばれる3つの理由">
+    <div class="tri-grid">
+      <div class="tri reveal">
+        <img class="tri-ico" src="assets/images/29928504-8b4c-4a00-8bdf-390ddb72e8fa.png" alt="">
+        <div class="tri-body">
+          <h3>パリパリ生地</h3>
+          <p>香ばしく焼き上げたこだわりの食感。</p>
+        </div>
+      </div>
+      <div class="tri reveal">
+        <img class="tri-ico" src="assets/images/86fa3f1e-40cd-445b-a240-765b6f2a10c6.png" alt="">
+        <div class="tri-body">
+          <h3>かわいい世界観</h3>
+          <p>思わず写真を撮りたくなる猫モチーフのデザイン。</p>
+        </div>
+      </div>
+      <div class="tri reveal">
+        <img class="tri-ico" src="assets/images/5b533e89-5b9f-4c27-869f-eafa66d1f3c2.png" alt="">
+        <div class="tri-body">
+          <h3>気軽に立ち寄れる</h3>
+          <p>学校帰りやおでかけのついでに立ち寄りやすい♪</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CUSTOMER VOICE ===================== -->
+<section class="section-pad">
+  <div class="wrap">
+    <img class="paw" src="assets/images/8107b768-cb23-43bb-87ba-55aa6976277a.png" alt="" style="top:26px;right:8%;width:32px;transform:rotate(26deg);opacity:.45;">
+    <img class="title-img reveal" src="assets/images/e08329e6-7bef-47c0-9cb7-3cf5796b8692.png" alt="食感や雰囲気に触れる声も">
+    <div class="voice-grid">
+      <div class="voice reveal">
+        <img src="assets/images/c08b6b4e-2ab2-4df6-94e9-2e4112552d07.png" alt="">
+        <p>パリパリの生地が楽しいと感じた♪</p>
+      </div>
+      <div class="voice reveal">
+        <img src="assets/images/1744fc26-3cd6-49fd-89b0-5026ee19f0fc.png" alt="">
+        <p>猫モチーフが可愛くて写真を撮りたくなった！</p>
+      </div>
+      <div class="voice reveal">
+        <img src="assets/images/a1a82edd-f2de-4e8d-9aea-bfa1529d97c1.png" alt="">
+        <p>ちょっとした息抜きにぴったりだった！</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STORE INFO ===================== -->
+<section class="section-pad" id="access" data-screen-label="access">
+  <div class="wrap">
+    <h2 class="card-title heading reveal" style="margin-bottom:22px;position:relative;">店舗情報 <span style="color:var(--pink-deep);">🐾</span>
+      <img class="deco" src="assets/images/c496079c-524c-402b-b3c4-57d87cdd9088.png" alt="" style="left:50%;transform:translateX(-50%);bottom:-14px;width:140px;">
+    </h2>
+    <div class="store-card reveal">
+      <div class="store-table">
+        <div class="store-row">
+          <span class="store-label">店舗名</span>
+          <span class="store-val">Crepe Sample 01（架空店舗）</span>
+        </div>
+        <div class="store-row">
+          <span class="store-label">住所</span>
+          <span class="store-val">サンプルのため非掲載</span>
+        </div>
+        <div class="store-row">
+          <span class="store-label">営業時間</span>
+          <span class="store-val">サンプルのため非掲載</span>
+        </div>
+        <div class="store-row">
+          <span class="store-label">アクセス</span>
+          <span class="store-val">サンプルのため非掲載</span>
+        </div>
+      </div>
+      <div class="store-art">
+        <img class="store-scene" src="assets/images/148bfdee-0052-4285-ae95-0e6fefd61173.png" alt="クレープ店 店舗イメージ（イラスト）">
+        <img class="store-logo" src="assets/images/8889b098-abd6-4220-9d5b-c3fd3a72c460.png" alt="NYAN CREPE ロゴ">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER CTA ===================== -->
+<footer id="news" data-screen-label="news">
+  <div class="cta-band">
+    <img class="paw" src="assets/images/8107b768-cb23-43bb-87ba-55aa6976277a.png" alt="" style="top:18px;left:8%;width:30px;opacity:.4;transform:rotate(-18deg);">
+    <img class="paw" src="assets/images/8107b768-cb23-43bb-87ba-55aa6976277a.png" alt="" style="bottom:24px;right:10%;width:26px;opacity:.4;transform:rotate(16deg);">
+    <div class="wrap">
+      <div class="cta-inner reveal">
+        <img class="deco" src="assets/images/41821bc0-9b85-4138-956e-171cb5b2253a.png" alt="" style="top:6px;left:6%;width:96px;opacity:.85;">
+        <img class="deco" src="assets/images/81f6fadd-f7b1-4e77-a3a8-7d366e52adce.png" alt="" style="top:0;right:8%;width:54px;">
+        <div class="cta-lead">
+          <img class="cat" src="assets/images/707806af-37c3-4748-a19c-f3055443765f.png" alt="">
+          <img class="cta-lead-img" src="assets/images/902c5a56-188b-4b75-a533-2a4f3fc8258a.png" alt="最新メニューやお知らせをチェック！">
+        </div>
+        <div class="ig-wrap">
+          <img class="deco ig-arrow" src="assets/images/c8917a07-a6c6-4030-8139-28c3a935ffbc.png" alt="">
+          <a class="ig-btn" href="#news" aria-label="Instagramで最新情報を確認">
+            <img src="assets/images/22557a9c-a056-457a-bae2-088f1188ac19.png" alt="Instagramで最新情報を確認">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="foot-note">This is an unofficial design proposal. This shop is fictional; the featured design is a concept sample.</p>
+  <p class="foot-note">© Crepe Sample 01｜Design Proposal</p>
+</footer>
+
+<script>
+  // smooth-scroll anchors (with html scroll-behavior fallback handled)
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href');
+      if(id.length < 2) return;
+      var el = document.querySelector(id);
+      if(!el) return;
+      e.preventDefault();
+      var y = el.getBoundingClientRect().top + window.pageYOffset - 12;
+      window.scrollTo({top:y, behavior:'smooth'});
+      history.replaceState(null,'',id);
+    });
+  });
+
+  // entrance animations
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    items.forEach(function(el){el.classList.add('in');});
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    items.forEach(function(el){io.observe(el);});
+  }
+</script>
+
+
+
+</body></html>
